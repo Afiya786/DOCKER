@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: peru; color: black;">
+    <p>This is API request tutorial</p>
+    
+</body>
+
+<script>
+    const requestURL = 'https://api.github.com/users/Afiya786'
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',requestURL); //the request has only been opened and not sent yet
+    xhr.onreadystatechange = function (){
+        console.log(xhr.readyState); 
+        if (xhr.readyState === 4 ){
+            const data = JSON.parse(this.responseText) // this will convert the fetched data into JSON format which is in string
+            console.log(data)
+            console.log(data.followers);
+            //for current context we use [this]
+            console.log(data.bio);
+
+        }
+    }
+
+    //this on ready state function will tell you on which state you are among the 5 states
+    //and for that you have to create a function
+    
+    
+    xhr.send();
+    
+</script>
+</html>
